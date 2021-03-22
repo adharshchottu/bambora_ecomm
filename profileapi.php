@@ -1,18 +1,21 @@
 <?php
 session_start();
 
+//json file generated to create a  payment profile in bambora using token
 $jsontosend=$_SESSION['profilejson'];
+//total price of the order
 $amount=$_SESSION['totalprice'];
+//generated order id
 $orderid=$_SESSION['orderid'];
 //set up api to send
-
 $apiurl="https://api.na.bambora.com/v1/profiles";
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $apiurl);
 curl_setopt($curl, CURLOPT_POST, 1);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $jsontosend);
+//replace the "ABcdEFghIjKLmnOPqrStUvwwxyz" with the base64encoded(merchantid:apikey)
 curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-      'Authorization: Passcode MzAwMjEyMjg2OjdFMzRFRDI1NEYwODRBQUM4RDk2NkNDOEE3NzYyNzNC',
+      'Authorization: Passcode ABcdEFghIjKLmnOPqrStUvwwxyz',
       'Content-Type: application/json',
    ));
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -49,7 +52,7 @@ echo $customerid;
 echo '<br>';
 */
 
-//display
+//display the results
 if(isset($customerid)){
     echo '<table class="table table-bordered table-striped">';
     echo '<th class="text-center">Congratulations! Your payment profile is ready</th>';
@@ -67,7 +70,8 @@ else{
 
 <script>
 function pay(){
-    window.location.href = "http://adipwoli.ml/ecom/paymentapi.php";
+      //replace the location with your file location
+    window.location.href = "paymentapi.php";
 }
 </script>
 </body>
