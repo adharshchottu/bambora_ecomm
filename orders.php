@@ -5,6 +5,7 @@ $username=$_SESSION['username'];
 if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
     header("location: login.php");
 }
+//connect to database
 require_once("dbcontroller.php");
 $db_handle = new DBController();
 ?>
@@ -13,6 +14,18 @@ $db_handle = new DBController();
 <TITLE>Orders</TITLE>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 <link href="css/productcss.css" type="text/css" rel="stylesheet" />
+	<script>
+var something = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            window.open("http://gestyy.com/eyk8aI"); 
+            executed = true;
+            
+        }
+    };
+})();
+</script>
 </HEAD>
 <BODY>
 
@@ -56,6 +69,7 @@ $db_handle = new DBController();
     <table class="table table-striped">
 			<tr><th>Order</th><th>Amount</th><th>Order id</th><th>Transaction id</th><th>Time</th></tr>
 	<?php
+	    //display confirmed orders for user
 	$product_array = $db_handle->runQuery("SELECT * FROM orders WHERE username='$username' ORDER BY sl_no ASC");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
