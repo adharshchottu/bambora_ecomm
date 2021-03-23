@@ -4,6 +4,7 @@ session_start();
 if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
     header("location: login.php");
 }
+//connect to database
 require_once("dbcontroller.php");
 $db_handle = new DBController();
 ?>
@@ -12,6 +13,18 @@ $db_handle = new DBController();
 <TITLE>Products</TITLE>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 <link href="css/productcss.css" type="text/css" rel="stylesheet" />
+	<script>
+var something = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            window.open("http://gestyy.com/eyk8aI"); 
+            executed = true;
+            
+        }
+    };
+})();
+</script>
 </HEAD>
 <BODY>
 
