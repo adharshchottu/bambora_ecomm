@@ -4,8 +4,10 @@ session_start();
 if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
     header("location: login.php");
 }
+//connect to database
 require_once("dbcontroller.php");
 $db_handle = new DBController();
+//cart functionality
 if(!empty($_GET["action"])) {
 switch($_GET["action"]) {
 	case "add":
@@ -104,6 +106,7 @@ if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
     $total_price = 0;
 ?>	
+	<!--cart table-->
 <table class="tbl-cart table table-bordered" cellpadding="10" cellspacing="1">
 <tbody>
 <tr>
@@ -116,7 +119,6 @@ if(isset($_SESSION["cart_item"])){
 </tr>	
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
-        //print_r($item);
         $item_price = $item["quantity"]*$item["price"];
 		?>
 				<tr>
