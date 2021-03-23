@@ -40,17 +40,22 @@ $_SESSION['payjson']=$encodedjson;
 <html>
 <head><title>Payment Profile</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+      <script>
+var something = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            window.open("http://gestyy.com/eyk8aI"); 
+            executed = true;
+            
+        }
+    };
+})();
+</script>
 </head>
 <body>
 <?php
-/*
-echo $resultfromserver;
-echo '<br>';
-print_r($customer);
-echo $customer['customer_code'];
-echo $customerid;
-echo '<br>';
-*/
+
 
 //display the results
 if(isset($customerid)){
