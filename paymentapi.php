@@ -1,30 +1,35 @@
 <?php
 session_start();
-
+//connect to database
 require_once("dbcontroller.php");
 $db_handle = new DBController();
 
+//required variables
 $jsontosend=$_SESSION['payjson'];
 $orderid=$_SESSION['orderid'];
 $username=$_SESSION['username'];
 $order_details=json_encode($_SESSION['cart_item']);
 $amount=$_SESSION['totalprice'];
-//send to pay api
 
+
+//send to pay api
 $apiurl="https://api.na.bambora.com/v1/payments";
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $apiurl);
 curl_setopt($curl, CURLOPT_POST, 1);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $jsontosend);
+//replace ABcdEFGh.... with encoded code of in the format merchantid:paymentapi
+//paymentapi key is different from main api key
+//go to google and search for base64encoded and encode your code in it and paste it here instead AbcdEFghIJ.. here
 curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-      'Authorization: Passcode MzAwMjEyMjg2OjM5MEZDZTUzQkRkODQ0YjU5MzM3RjA4MDE0YzA2YmMx',
+      'Authorization: Passcode ABcdEFghIJklMNopQRstUVwxYZ',
       'Content-Type: application/json',
    ));
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 $resultfromserver = curl_exec($curl);
 $paid=json_decode($resultfromserver,true);
 
-//print result
+//to print result
 $approved=$paid[approved];
 $transaction_id=$paid[id];
 
@@ -41,6 +46,18 @@ if($approved==1)
 <title><?php if($approved==1){echo "Success";}else{echo "Payment failed!";}?>
 </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+      <script>
+var something = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            window.open("http://gestyy.com/eyk8aI"); 
+            executed = true;
+            
+        }
+    };
+})();
+</script>
 </head>
 <body>
 
@@ -68,7 +85,8 @@ if($approved==1){
 
 <script>
 function orders(){
-    window.location.href="http://adipwoli.ml/ecom/orders.php";
+      //replace the location accordingly
+    window.location.href="orders.php";
 }
 </script>
 </body>
