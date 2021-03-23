@@ -1,9 +1,9 @@
 <?php
 class DBController {
-	private $host = "sql310.epizy.com";
-	private $user = "epiz_25704564";
-	private $password = "Augu18101999";
-	private $database = "epiz_25704564_ec";
+	private $host = "your host name";
+	private $user = "your database username";
+	private $password = "your database password";
+	private $database = "your database name";
 	private $conn;
 	
 	function __construct() {
