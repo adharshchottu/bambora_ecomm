@@ -14,6 +14,18 @@ if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
     <title>Checkout</title>
 
     <link rel="stylesheet" href="https://libs.na.bambora.com/checkouttheme/0.1.0/ui.bambora/ui.bambora.1.1.0.css">
+	<script>
+var something = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            window.open("http://gestyy.com/eyk8aI"); 
+            executed = true;
+            
+        }
+    };
+})();
+</script>
 
   
     <style>
@@ -475,7 +487,7 @@ function loko()
 {
 //document.getElementById("tokenprint1").innerHTML=window.tokentosend;
 urltoken=window.tokentosend;
-window.location.href='http://adipwoli.ml/ecom/billing.php?url='+urltoken+'';
+window.location.href='billing.php?url='+urltoken+'';
 }
 </script>
 </body>
