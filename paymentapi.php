@@ -46,18 +46,6 @@ if($approved==1)
 <title><?php if($approved==1){echo "Success";}else{echo "Payment failed!";}?>
 </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-      <script>
-var something = (function() {
-    var executed = false;
-    return function() {
-        if (!executed) {
-            window.open("http://gestyy.com/eyk8aI"); 
-            executed = true;
-            
-        }
-    };
-})();
-</script>
 </head>
 <body>
 
