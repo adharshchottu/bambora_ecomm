@@ -18,18 +18,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <style type="text/css">
         body{ font: 14px sans-serif; text-align: center; }
     </style>
- <script>
-var something = (function() {
-    var executed = false;
-    return function() {
-        if (!executed) {
-            window.open("http://gestyy.com/eyk8aI"); 
-            executed = true;
-            
-        }
-    };
-})();
-</script>
 </head>
 <body>
 
