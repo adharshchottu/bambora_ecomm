@@ -14,18 +14,6 @@ $db_handle = new DBController();
 <TITLE>Orders</TITLE>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 <link href="css/productcss.css" type="text/css" rel="stylesheet" />
-	<script>
-var something = (function() {
-    var executed = false;
-    return function() {
-        if (!executed) {
-            window.open("http://gestyy.com/eyk8aI"); 
-            executed = true;
-            
-        }
-    };
-})();
-</script>
 </HEAD>
 <BODY>
 
